@@ -8,11 +8,13 @@ typedef struct no{
     tElemento e;
     struct no *prox;
 } tNo;
+    extern tNo * getNo(tElemento v);
+    extern void deleteNo(tNo *no);
 
-    extern int CriaPilha( tNo **pilha);
-    extern int PilhaVazia(const tNo *p);
-    extern int ElementoTopo(const tNo *p);
-    extern int Empilha(tNo *p, tElemento item);
-    extern int Desempilha(tNo *p);
+    extern void CriaPilha( tNo **pilha);
+    extern int PilhaVazia(const tNo *pilha);
+    extern int ElementoTopo(const tNo *pilha);
+    extern int Empilha(tNo **pilha, tElemento item);
+    extern int Desempilha(tNo ** pilha);
 
 #endif // PILHAINDEX_H
