@@ -29,7 +29,6 @@ int ElementoTopo(const tNo *pilha){
             printf("pilha vazia");
     return 1;
     }
-    no=no->prox;
     printf("%d ", no->e);
 return 0;
 }
