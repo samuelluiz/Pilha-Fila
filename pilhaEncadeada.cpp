@@ -12,7 +12,7 @@ tNo * getNo(tElemento v){
     return n;
 }
 
-void deleteNo(tNo * no){
+void deleteNo(tNo *no){
     free(no);
 }
 
@@ -23,7 +23,7 @@ int CriaPilha(tNo **pilha){
 int PilhaVazia(const tNo *pilha){
     return pilha->prox == NULL;
 }
-int ElementoTopo(const tNo #pilha){
+int ElementoTopo(const tNo *pilha){
     const tNo *no = lista;
     int c = 0;
     if(!PilhaVazia(pilha)) {
@@ -35,26 +35,32 @@ int ElementoTopo(const tNo #pilha){
 
 }
 
-void Empilha(tPilha *p, tElemento item){
-tNo *novo = getNo(elemento);
+void Empilha(tPilha **pilha, tElemento item){
+tNo *novo = getNo(item);
     if (novo == NULL){
         puts("memoria cheia");
         return 1;
     }
     if (EstaVazia(*pilha)){
         *pilha = novo;
-        return 0;
+        return 1;
     }
 
-    tNo * no = *novo;
-
-    no->prox = pilha->prox;
-    pilha->prox = novo;
-
+    novo->prox = *pilha;
+    *pilha = novo;
     return 0;
 }
-void Desempilha(tPilha *p){
-    pilha->prox =
- tNo *deletar = no->prox;
-    no->prox = no->prox->prox;
+
+void Desempilha(tPilha ** pilha){
+    tNo *topo = *pilha;
+    if(topo->prox != NULL){
+        *pilha = topo->prox;
+        deleteNo(topo);
+        return 1;
+    }
+    if(topo->prox == NULL){
+        *pilha==NULL;
+        deleteNo(topo);
+        return 0;
+    }
 }
