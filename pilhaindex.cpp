@@ -17,7 +17,7 @@ void deleteNo(tNo *no){
 }
 
 void CriaPilha(tNo **pilha){
-    pilha->prox = NULL;
+*pilha = NULL;
 }
 
 int PilhaVazia(const tNo *pilha){
@@ -25,13 +25,12 @@ int PilhaVazia(const tNo *pilha){
 }
 int ElementoTopo(const tNo *pilha){
     const tNo *no = pilha;
-    int c = 0;
     if(!PilhaVazia(pilha)) {
             printf("pilha vazia");
     return 1;
     }
-
- printf("%d ", pilha->prox);
+    no=no->prox;
+    printf("%d ", no->e);
 return 0;
 }
 
