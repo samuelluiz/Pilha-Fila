@@ -16,7 +16,7 @@ void deleteNo(tNo *no){
     free(no);
 }
 
-int CriaPilha(tNo **pilha){
+void CriaPilha(tNo **pilha){
     pilha->prox = NULL;
 }
 
@@ -32,7 +32,7 @@ int ElementoTopo(const tNo *pilha){
     }
 
  printf("%d ", pilha->prox);
-
+return 0;
 }
 
 int Empilha(tNo **pilha, tElemento item){
@@ -59,4 +59,5 @@ int Desempilha(tNo ** pilha){
         deleteNo(topo);
         return 0;
     }
+    return 1;
 }
