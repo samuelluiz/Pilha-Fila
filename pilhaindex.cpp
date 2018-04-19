@@ -1,4 +1,4 @@
-#include "pilhaEncadeada.h"
+#include "pilhaindex.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -24,7 +24,7 @@ int PilhaVazia(const tNo *pilha){
     return pilha->prox == NULL;
 }
 int ElementoTopo(const tNo *pilha){
-    const tNo *no = lista;
+    const tNo *no = pilha;
     int c = 0;
     if(!PilhaVazia(pilha)) {
             printf("pilha vazia");
@@ -35,14 +35,10 @@ int ElementoTopo(const tNo *pilha){
 
 }
 
-void Empilha(tPilha **pilha, tElemento item){
+int Empilha(tNo **pilha, tElemento item){
 tNo *novo = getNo(item);
     if (novo == NULL){
         puts("memoria cheia");
-        return 1;
-    }
-    if (EstaVazia(*pilha)){
-        *pilha = novo;
         return 1;
     }
 
@@ -51,7 +47,7 @@ tNo *novo = getNo(item);
     return 0;
 }
 
-void Desempilha(tPilha ** pilha){
+int Desempilha(tNo ** pilha){
     tNo *topo = *pilha;
     if(topo->prox != NULL){
         *pilha = topo->prox;
